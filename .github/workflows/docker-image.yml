@@ -19,8 +19,12 @@ jobs:
       uses: gradle/actions/setup-gradle@v4
       with:
          gradle-version: "6.3" # Quotes required to prevent YAML converting to number
+
+    - name: Generate Gradle Wrapper
+      run: gradle wrapper
+      
     - name: Build project
-      run: gradlew clean build
+      run: ./gradlew clean build
 
     - name: Login to dockerhub
       uses: docker/login-action@v3
