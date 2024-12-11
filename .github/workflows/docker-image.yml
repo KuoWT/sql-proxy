@@ -9,11 +9,19 @@ jobs:
     steps:
     - name: Checkout project sources
       uses: actions/checkout@v4
+
+      
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
-    - name: Run build with Gradle Wrapper
-      run: ./gradlew build
-    
+
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+      with:
+         gradle-version: "current" # Quotes required to prevent YAML converting to number
+    - name: Build with Gradle
+      run: gradle build
+
     - name: Login to dockerhub
       uses: docker/login-action@v3
       with:
