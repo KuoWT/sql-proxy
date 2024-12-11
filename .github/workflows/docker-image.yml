@@ -1,0 +1,5 @@
+with:
+       context:
+       push: true
+       tags: kicsipixel/sql-proxy:latest
+       tags: kevinkho/sql-proxy:latest
